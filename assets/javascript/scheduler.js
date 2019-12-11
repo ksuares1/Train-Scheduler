@@ -58,7 +58,15 @@ var trainDestination = childSnapshot.val().destination;
 var trainTime = childSnapshot.val().first;
 var trainFrequency = childSnapshot.val().frequency;
 
+// console.log the values
 console.log(trainName);
 console.log(trainDestination);
 console.log(trainTime);
 console.log(trainFrequency);
+
+// Calculating the train arrival time in minutes and military hours
+
+var trainTimeConv = moment(trainTime, "hh:mm a").subtract(1, "years");
+
+var currentTime = moment.format("HH:mm a");
+
