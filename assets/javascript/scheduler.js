@@ -16,10 +16,11 @@ var database = firebase.database();
 
 $("#add-train-btn").on("click", function (event) {
     event.preventDefault();
+   
     // Grabs user input
-    var trainName = $("#train-name-input").val().trim();
-    var trainDestination = $("#train-destination-input").val().trim();
-    var trainTime = moment($("#start-input").val().trim(), "MM/DD/YYYY").format("X");
+    var trainName = $("#train-name").val().trim();
+    var trainDestination = $("#destination").val().trim();
+    var trainTime = moment($("#start-input").val().trim(), "");
     var trainFrequency = $("#frequency-input").val().trim();
 
     // Creates local "temporary" object for holding train data
@@ -40,16 +41,18 @@ $("#add-train-btn").on("click", function (event) {
     console.log(newTrain.frequency);
 
     // Clears all of the text-boxes
-    $("#train-name-input").val("");
-    $("#train-destination-input").val("");
+    $("#train-name").val("");
+    $("#destination").val("");
     $("#start-input").val("");
     $("#frequency-input").val("");
 });
 
+// Create a firebase event add trains to the database
 database.ref().on("child_added", function (childSnapshot) {
     console.log('childSnapshot is', childSnapshot.val());
 });
 
+// Snapshot changes are stored in variables
 var trainName = childSnapshot.val().train;
 var trainDestination = childSnapshot.val().destination;
 var trainTime = childSnapshot.val().first;
