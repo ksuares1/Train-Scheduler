@@ -75,5 +75,9 @@ console.log("Current Time:" + currentTime);
 var trnTimeCurrentTimeDiff = moment().diff(moment(firstTrnTimeConv), "minutes");
 
 // store time left
-
 var timeLeft = trnTimeCurrentTimeDiff % trainFrequency;
+
+// calculating and storing the minutes left until the next train arrives
+var minutesAway= trainFrequency - timeLeft; 
+
+var nextArrival= moment().add(minutesAway, "minutes").format("hh:mm a");
