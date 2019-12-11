@@ -69,4 +69,11 @@ console.log(trainFrequency);
 var trainTimeConv = moment(trainTime, "hh:mm a").subtract(1, "years");
 
 var currentTime = moment.format("HH:mm a");
+console.log("Current Time:" + currentTime);
 
+// Difference of current Time and the first train time
+var trnTimeCurrentTimeDiff = moment().diff(moment(firstTrnTimeConv), "minutes");
+
+// store time left
+
+var timeLeft = trnTimeCurrentTimeDiff % trainFrequency;
