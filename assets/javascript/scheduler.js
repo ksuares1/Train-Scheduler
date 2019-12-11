@@ -27,9 +27,15 @@ $("#add-train-btn").on("click", function(event){
     train: trainName,
     destination:trainDestination,
     first: trainTime,
-    Frequency: trainFrequency
+    frequency: trainFrequency
   };
 
   // Uploads train data to the database
 database.ref().push(newTrain);
+
+// Logs everything to console
+console.log(newTrain.train);
+console.log(newTrain.destination);
+console.log(newTrain.first);
+console.log(newTrain.frequency);
 })
