@@ -81,3 +81,14 @@ var timeLeft = trnTimeCurrentTimeDiff % trainFrequency;
 var minutesAway= trainFrequency - timeLeft; 
 
 var nextArrival= moment().add(minutesAway, "minutes").format("hh:mm a");
+
+// Create the new row
+var newRow = $("<tr>").append(
+    $("<td>").text(trainName),
+    $("<td>").text(trainDestinaton),
+    $("<td>").text(trainTime),
+    $("<td>").text(trainFrequency),
+  );
+
+  // Append the new row to the table
+  $("#train-table > tbody").append(newRow);
