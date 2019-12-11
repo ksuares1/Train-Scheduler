@@ -17,10 +17,10 @@ var firebaseConfig = {
 $("#add-train-btn").on("click", function(event){
     event.preventDefault();
     // Grabs user input
-  var trainName = $("#employee-name-input").val().trim();
-  var trainDestination = $("#role-input").val().trim();
+  var trainName = $("#train-name-input").val().trim();
+  var trainDestination = $("#train-destination-input").val().trim();
   var trainTime = moment($("#start-input").val().trim(), "MM/DD/YYYY").format("X");
-  var trainFrequency = $("#rate-input").val().trim();
+  var trainFrequency = $("#frequency-input").val().trim();
 
   // Creates local "temporary" object for holding train data
   var newTrain = {
