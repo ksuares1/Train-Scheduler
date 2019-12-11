@@ -54,3 +54,8 @@ var trainName = childSnapshot.val().train;
 var trainDestination = childSnapshot.val().destination;
 var trainTime = childSnapshot.val().first;
 var trainFrequency = childSnapshot.val().frequency;
+
+console.log(trainName);
+console.log(trainDestination);
+console.log(trainTime);
+console.log(trainFrequency);
