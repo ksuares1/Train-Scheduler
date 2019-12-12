@@ -13,14 +13,13 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 //   Button for add trains
-
-$("#add-train-btn").on("click", function (event) {
+$("#add-train-btn").on("click", function(event) {
     event.preventDefault();
    
     // Grabs user input
-    var trainName = $("#train-name").val().trim();
-    var trainDestination = $("#destination").val().trim();
-    var trainTime = moment($("#start-input").val().trim(), "");
+    var trainName = $("#train-name-input").val().trim();
+    var trainDestination = $("#destination-input").val().trim();
+    var trainTime = moment($("#train-time-input").val().trim(), "MM/DD/YYYY").format("X");
     var trainFrequency = $("#frequency-input").val().trim();
 
     // Creates local "temporary" object for holding train data
@@ -41,16 +40,16 @@ $("#add-train-btn").on("click", function (event) {
     console.log(newTrain.frequency);
 
     // Clears all of the text-boxes
-    $("#train-name").val("");
-    $("#destination").val("");
-    $("#start-input").val("");
+    $("#train-name-input").val("");
+    $("#destination-input").val("");
+    $("train-time-input").val("");
     $("#frequency-input").val("");
 });
 
 // Create a firebase event add trains to the database
 database.ref().on("child_added", function (childSnapshot) {
     console.log('childSnapshot is', childSnapshot.val());
-});
+
 
 // Snapshot changes are stored in variables
 var trainName = childSnapshot.val().train;
@@ -68,11 +67,11 @@ console.log(trainFrequency);
 
 var trainTimeConv = moment(trainTime, "hh:mm a").subtract(1, "years");
 
-var currentTime = moment.format("HH:mm a");
+var currentTime = moment().format("HH:mm a");
 console.log("Current Time:" + currentTime);
 
 // Difference of current Time and the first train time
-var trnTimeCurrentTimeDiff = moment().diff(moment(firstTrnTimeConv), "minutes");
+var trnTimeCurrentTimeDiff = moment().diff(moment(trainTimeConv), "minutes");
 
 // store time left
 var timeLeft = trnTimeCurrentTimeDiff % trainFrequency;
@@ -85,10 +84,11 @@ var nextArrival= moment().add(minutesAway, "minutes").format("hh:mm a");
 // Create the new row
 var newRow = $("<tr>").append(
     $("<td>").text(trainName),
-    $("<td>").text(trainDestinaton),
+    $("<td>").text(trainDestination),
     $("<td>").text(trainTime),
     $("<td>").text(trainFrequency),
   );
 
   // Append the new row to the table
   $("#train-table > tbody").append(newRow);
+});
