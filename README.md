@@ -10,4 +10,5 @@ This is a train schedule application that incorporates Firebase to host arrival 
 - Firebase
 - Bootstrap
 - JavaScript
+- Jquery
 
