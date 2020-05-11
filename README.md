@@ -7,4 +7,5 @@
 - CSS
 - Firebase
 - Bootstrap
+- JavaScript
 
