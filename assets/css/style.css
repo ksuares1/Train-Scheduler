@@ -1,5 +1,8 @@
 .container-title{
     text-align:center;
+    margin:auto;
+    width:55%;
+    height:45%;
     /* float:right; */
 }
 
