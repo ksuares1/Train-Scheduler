@@ -10,3 +10,7 @@
     text-align:center;
     float:right;
 }
+
+.card-header{
+    margin:0 auto;
+}
