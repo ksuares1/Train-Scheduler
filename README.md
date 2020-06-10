@@ -17,7 +17,7 @@ This web application using Firebase to add new trains, arrival times, and days. 
 4. Moment.js is allows users to add dates and times to the scheduler. 
 
 ## Clone
-Clone Train Scheduler: 
+Clone Train Scheduler: https://github.com/ksuares1/Train-Scheduler.git
 
 ## Technologies
 - **HTML5/CSS**
